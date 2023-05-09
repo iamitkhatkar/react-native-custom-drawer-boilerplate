@@ -18,7 +18,24 @@ const DrawerNavigator = () => {
     );
   };
   return (
-    <Drawer.Navigator drawerType="slide">
+    <Drawer.Navigator
+      drawerType="slide"
+      screenOptions={{
+        headerShown: false,
+        drawerActiveBackgroundColor: Colors.transparent,
+        drawerInactiveBackgroundColor: Colors.transparent,
+        drawerActiveTintColor: Colors.active,
+        drawerInactiveTintColor: Colors.inactive,
+        drawerHideStatusBarOnOpen: true,
+        overlayColor: Colors.transparent,
+        drawerStyle: {
+          backgroundColor: Colors.bg,
+          width: '60%',
+        },
+        sceneContainerStyle: {
+          backgroundColor: Colors.bg,
+        },
+      }}>
       <Drawer.Screen
         name="Dashboard"
         component={Dashboard}
@@ -50,4 +67,5 @@ const Colors = {
   bg: '#009688',
   active: '#fff',
   inactive: '#eee',
+  transparent: 'transparent',
 };

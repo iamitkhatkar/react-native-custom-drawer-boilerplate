@@ -10,25 +10,28 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import PropertyListingItem from '../../components/PropertyListingItem';
 import {sampleData} from '../../utils/sampleData';
+import DrawerSceneWrapper from '../../components/DrawerSceneWrapper';
 
 const Dashboard = ({navigation}) => {
   const {openDrawer} = navigation;
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.wrapper}>
-        <View style={styles.searchBar}>
-          <TouchableOpacity onPress={openDrawer}>
-            <Icon name="menu" size={20} color="#666" />
-          </TouchableOpacity>
-          <Text style={styles.searchTextPlaceHolder}>Search Here</Text>
+    <DrawerSceneWrapper>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.wrapper}>
+          <View style={styles.searchBar}>
+            <TouchableOpacity onPress={openDrawer}>
+              <Icon name="menu" size={20} color="#666" />
+            </TouchableOpacity>
+            <Text style={styles.searchTextPlaceHolder}>Search Here</Text>
+          </View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={sampleData}
+            renderItem={({item}) => <PropertyListingItem {...item} />}
+          />
         </View>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={sampleData}
-          renderItem={({item}) => <PropertyListingItem {...item} />}
-        />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </DrawerSceneWrapper>
   );
 };
 
