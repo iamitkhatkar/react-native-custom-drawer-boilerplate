@@ -4,6 +4,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Dashboard from '../screens/dashboard';
 import Wishlist from '../screens/wishlist';
 import History from '../screens/history';
+import {Platform} from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -26,7 +27,7 @@ const DrawerNavigator = () => {
         drawerInactiveBackgroundColor: Colors.transparent,
         drawerActiveTintColor: Colors.active,
         drawerInactiveTintColor: Colors.inactive,
-        drawerHideStatusBarOnOpen: true,
+        drawerHideStatusBarOnOpen: Platform.OS === 'ios' ? true : false,
         overlayColor: Colors.transparent,
         drawerStyle: {
           backgroundColor: Colors.bg,
